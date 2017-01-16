@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import os
-import pypandoc
+
 import setuptools
 
 def main():
 
     setuptools.setup(
         name                 = "tonescale",
-        version              = "2017.01.13.1728",
+        version              = "2017.01.16.1529",
         description          = "sound utilities and sounds",
         long_description     = long_description(),
         url                  = "https://github.com/wdbm/tonescale",
@@ -37,13 +37,13 @@ def long_description(
     filename = "README.md"
     ):
 
-    try:
+    if os.path.isfile(os.path.expandvars(filename)):
         try:
             import pypandoc
-            long_description = pypandoc.convert(filename, "rst")
+            long_description = pypandoc.convert_file(filename, "rst")
         except ImportError:
             long_description = open(filename).read()
-    except Exception:
+    else:
         long_description = ""
     return long_description
 
