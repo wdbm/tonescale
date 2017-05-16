@@ -31,7 +31,7 @@
 """
 
 name    = "examples_sounds"
-version = "2017-01-12T2239Z"
+version = "2017-05-16T1733Z"
 logo    = None
 
 import tonescale
@@ -40,17 +40,50 @@ import time
 def main():
 
     print("\nexample: play sound in loop")
-
+    
     sound = tonescale.access_sound(name = "199935__drzhnn__04-blip")
-
+    
     for count in range(5):
         sound.play()
-
+    
     print("\nexample: repeat sound and then play sound")
-
+    
     sound = tonescale.access_sound(name = "DynamicLoad_BSPNostromo_Ripley.023")
     sound.repeat(number = 2)
     sound.play()
+    
+    print("\nexample: concatenate sounds and then play")
+    
+    sound = tonescale.Sound(name = "compose")
+    sound.concatenate(
+        sounds = [
+                     tonescale.access_sound(name = "199935__drzhnn__04-blip"),
+                     tonescale.access_sound(name = "199935__drzhnn__04-blip"),
+                     tonescale.access_sound(name = "199935__drzhnn__04-blip")
+                 ]
+    )
+    sound.play()
+    
+    print("\nexample: add sounds and then play")
+    
+    sound_1 = tonescale.access_sound(name = "199935__drzhnn__04-blip")
+    sound_2 = tonescale.access_sound(name = "199935__drzhnn__04-blip")
+    sound_3 = sound_1 + sound_2
+    sound_3.play()
+
+    print("\nexample: sum sounds and then play")
+
+    sound_1 = tonescale.access_sound(name = "199935__drzhnn__04-blip")
+    sound_2 = tonescale.access_sound(name = "199935__drzhnn__04-blip")
+    sound_3 = sum([sound_1, sound_2])
+    sound_3.play()
+
+    print("\nexample: play all sounds in tonescale 3 times\n")
+
+    for sound in tonescale.sounds:
+        print("play sound {name}".format(name = sound.name()))
+        sound.repeat(number = 3)
+        sound.play()
 
 if __name__ == "__main__":
     main()
