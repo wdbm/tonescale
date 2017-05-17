@@ -9,7 +9,7 @@ def main():
 
     setuptools.setup(
         name                 = "tonescale",
-        version              = "2017.05.16.1733",
+        version              = "2017.05.17.1932",
         description          = "sound utilities and sounds",
         long_description     = long_description(),
         url                  = "https://github.com/wdbm/tonescale",
@@ -21,16 +21,19 @@ def main():
                                ],
         install_requires     = [
                                "numpy",
+                               "propyte",
+                               "pyaudio",
                                "scipy",
-                               "shijian"
+                               "shijian",
+                               "sklearn"
                                ],
         scripts              = [
                                "sound_search.py"
                                ],
         entry_points         = """
-            [console_scripts]
-            tonescale = tonescale:tonescale
-        """
+                               [console_scripts]
+                               tonescale = tonescale:tonescale
+                               """
     )
 
 def long_description(

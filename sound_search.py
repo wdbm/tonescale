@@ -40,24 +40,24 @@ options:
     -v, --verbose            verbose logging
     -s, --silent             silent
     -u, --username=USERNAME  username
+
     --minlength=SECONDS      length of sound file in seconds [default: 300]
     --extensions=EXTENSIONS  filename extensions [default: ogg,flac,wav,mp3,m3u]
     --directory=DIRECTORY    directory at which to search [default: .]
 """
 
-name    = "sound_search"
-version = "2016-02-23T1447Z"
-logo    = None
-
+import commands
+import docopt
 import os
 import sys
 import time
-import docopt
-import commands
+
+name    = "sound_search"
+version = "2017-05-17T1932Z"
+logo    = None
 
 def main(options):
 
-    # access options and arguments
     length_minimum_specification = float(options["--minlength"])
     extensions                   = options["--extensions"].split(",")
     search_directory             = options["--directory"]
