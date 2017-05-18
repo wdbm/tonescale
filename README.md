@@ -3,6 +3,11 @@
 # setup
 
 ```Bash
+sudo apt-get install libasound-dev
+sudo apt-get install portaudio
+sudo apt-get install python-pyaudio
+sudo apt-get install python3-pyaudio
+
 pip install tonescale
 ```
 
