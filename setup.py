@@ -9,7 +9,7 @@ def main():
 
     setuptools.setup(
         name                 = "tonescale",
-        version              = "2017.07.04.1100",
+        version              = "2018.02.06.1919",
         description          = "sound utilities and sounds",
         long_description     = long_description(),
         url                  = "https://github.com/wdbm/tonescale",
