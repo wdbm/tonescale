@@ -2,10 +2,24 @@
 
 # setup
 
+## Ubuntu 16.04 LTS
+
 ```Bash
 sudo apt install    \
     libasound-dev   \
     portaudio       \
+    python-pyaudio  \
+    python3-pyaudio
+
+pip install tonescale
+```
+
+## Ubuntu 18.04 LTS
+
+```Bash
+sudo apt install    \
+    libasound-dev   \
+    portaudio19-dev \
     python-pyaudio  \
     python3-pyaudio
 
